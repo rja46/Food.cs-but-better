@@ -1,0 +1,15 @@
+/workspaces/Food.cs-but-better/bin/Debug/net7.0/Food.cs-but-better
+/workspaces/Food.cs-but-better/bin/Debug/net7.0/Food.cs-but-better.deps.json
+/workspaces/Food.cs-but-better/bin/Debug/net7.0/Food.cs-but-better.runtimeconfig.json
+/workspaces/Food.cs-but-better/bin/Debug/net7.0/Food.cs-but-better.dll
+/workspaces/Food.cs-but-better/bin/Debug/net7.0/Food.cs-but-better.pdb
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/Food.cs-but-better.csproj.AssemblyReference.cache
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/Food.cs-but-better.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/Food.cs-but-better.AssemblyInfoInputs.cache
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/Food.cs-but-better.AssemblyInfo.cs
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/Food.cs-but-better.csproj.CoreCompileInputs.cache
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/Food.cs-but-better.dll
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/refint/Food.cs-but-better.dll
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/Food.cs-but-better.pdb
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/Food.cs-but-better.genruntimeconfig.cache
+/workspaces/Food.cs-but-better/obj/Debug/net7.0/ref/Food.cs-but-better.dll
