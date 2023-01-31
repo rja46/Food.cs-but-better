@@ -5,6 +5,7 @@ class Simulation
         protected int noOfCompanies;
         protected double fuelCostPerUnit, baseCostForDelivery;
         protected List<Company> companies = new List<Company>();
+        protected int daysPassed = 0;
 
         public Simulation()
         {
@@ -70,6 +71,7 @@ class Simulation
             Console.WriteLine("3. Modify company");
             Console.WriteLine("4. Add new company");
             Console.WriteLine("6. Advance to next day");
+            Console.WriteLine("7. Advance multiple days");
             Console.WriteLine("Q. Quit");
             Console.Write("\n Enter your choice: ");
         }
@@ -207,6 +209,7 @@ class Simulation
 
         public void ProcessDayEnd()
         {
+            daysPassed++;
             double totalReputation = 0;
             List<double> reputations = new List<double>();
             int companyRNo, current, loopMax, x = 0, y = 0;
@@ -234,6 +237,10 @@ class Simulation
                     }
                 }
             }
+            Console.WriteLine();
+            Console.WriteLine("******************");
+            Console.WriteLine("**** Day " + daysPassed.ToString().PadLeft(3,'0') + ": ****");
+            Console.WriteLine("******************");
             DisplayCompaniesAtDayEnd();
             DisplayEventsAtDayEnd();
         }
@@ -349,8 +356,17 @@ class Simulation
             Console.WriteLine();
         }
 
+        public void proccessMultipleDays(int days)
+        {
+            for (int i = 0; i < days; i++)
+            {
+                ProcessDayEnd();
+            }
+        }
+
         public void Run()
         {
+            int numOfDays = 0;
             string choice = "";
             int index;
             while (choice != "Q")
@@ -382,6 +398,12 @@ class Simulation
                     case "6":
                         ProcessDayEnd();
                         break;
+                    case "7":
+                        Console.Write("Enter the number of days: ");
+                        numOfDays = Convert.ToInt32(Console.ReadLine());
+                        proccessMultipleDays(numOfDays);
+                        break;
+
                     case "Q":
                         Console.WriteLine("Simulation finished, press Enter to close.");
                         Console.ReadLine();
