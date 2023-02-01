@@ -299,6 +299,7 @@ class Simulation
             Console.WriteLine("1. Open new outlet");
             Console.WriteLine("2. Close outlet");
             Console.WriteLine("3. Expand outlet");
+            Console.WriteLine("4. Remove company");
             Console.Write("\nEnter your choice: ");
             choice = Console.ReadLine();
             if (choice == "2" || choice == "3")
@@ -339,6 +340,17 @@ class Simulation
                 else
                 {
                     Console.WriteLine("Invalid coordinates.");
+                }
+            }
+            else if (choice == "4")
+            {
+                for (int i = 0; i < companies[index].GetNumberOfOutlets();i++)
+                {
+                    closeCompany = companies[index].CloseOutlet(1);
+                    if (closeCompany)
+                    {
+                        companies.RemoveAt(index);
+                    }
                 }
             }
             Console.WriteLine();
