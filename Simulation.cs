@@ -344,9 +344,10 @@ class Simulation
             }
             else if (choice == "4")
             {
+                Console.WriteLine("REMOVE COMPANY");
                 for (int i = 0; i < companies[index].GetNumberOfOutlets();i++)
                 {
-                    closeCompany = companies[index].CloseOutlet(1);
+                    closeCompany = companies[index].CloseOutlet(companies[index].GetNumberOfOutlets() - 1);
                     if (closeCompany)
                     {
                         companies.RemoveAt(index);

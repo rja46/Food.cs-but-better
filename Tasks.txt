@@ -1,0 +1,24 @@
+FoodCS Tasks
+Interpret these tasks as you see fit. Some can be completed in more than one way. You can repeat them in different ways too.
+Share any ideas for additional tasks so that these can be added to the document for the benefit of the rest of the group.
+1.	VALIDATION.
+2.	Add a method to the Simulation class that allows for the removal of a company without the need to remove all of its outlets.
+3.	DONE Add code to the Simulation class to keep track of the number of days that have passed.
+4.	DONE Add code to allow the user to advance a number of days at a time.
+5.	Ensure that company names cannot be duplicated.
+6.	Create events that cause temporary closures of outlets for a number of days (eg strike, problems with electricity or water, ingredient supply issues etc).
+7.	Introduce the concept of weather into the simulation. At the start of each new day, randomly select the weather for the day. Allow the type of weather to have some bearing on the likelihood of households eating out.
+8.	Ensure that fuel costs cannot become negative.
+9.	Add an identifier for outlets and use this as the main method for processing their data.
+10.	Add scandal events that drastically affect a company's reputation.
+11.	Ensure that each location on the grid is only occupied by one object (household, company outlet).
+12.	Create an event that results in the permanent closure of an outlet and its removal from the simulation.
+13.	Create an event that allows a company in profit to purchase an outlet from another company at a fraction of the cost of opening an entirely new outlet.
+14.	Add a field for each household that stores the maximum distance it can travel in order to purchase a meal. Adapt the methods that determine where they eat so that they always eat within a certain location.
+15.	For each company, randomly choose whether or not it caters for special diets (vegetarian, vegan, gluten free, nut free etc.). Include a field or fields in each household that store the likelihood of a household member requiring a meal for a special diet and only eat out at companies that cater for that diet. You could also make the ability to do this dependent on the capacity of the outlet in some way.
+16.	Change the CalculateDeliveryCosts() method of the company class. Start by finding the coordinates of the closest outlet to the company's location. Calculate the total distance by choosing the next closest outlet each time until all outlets have been visited. Work out how much distance is saved compared to the original method.
+17.	Work out how to save and load running simulations. Do this with the original program only. The benefit of having something like this, in addition to the practice, would be the ability to load and reload scenarios for testing other things that you implement.
+18.	Make better summary data for companies and outlets. Keep track of totals and averages over time. (You will need to keep track of the number of days that have passed since the start of the simulation).
+19.	Have a start date for the simulation entered by the user. Use DateTime structures to display the day of the week and the in-built methods to allow you to track the simulation against a calendar. Increase the likelihood of eating out for weekends and some specific holidays.
+20.	When an outlet has reached its maximum capacity, allow for this to be adjusted upwards at a cost.
+21.	Create and investigate the relationship between a company's total capacity to sell meals and the demand for them (number of visits). Use this to determine when to open additional outlets.
