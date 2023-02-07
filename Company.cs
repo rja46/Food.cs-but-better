@@ -5,6 +5,7 @@ class Company
         protected double balance, reputationScore, avgCostPerMeal, avgPricePerMeal, dailyCosts, familyOutletCost, fastFoodOutletCost, namedChefOutletCost, fuelCostPerUnit, baseCostOfDelivery;
         protected List<Outlet> outlets = new List<Outlet>();
         protected int familyFoodOutletCapacity, fastFoodOutletCapacity, namedChefOutletCapacity;
+        protected int daysShut;
         public Company(string name, string category, double balance, int x, int y, double fuelCostPerUnit, double baseCostOfDelivery)
         {
             familyOutletCost = 1000;
@@ -39,6 +40,15 @@ class Company
                 reputationScore += rnd.NextDouble() * 50;
             }
             OpenOutlet(x, y);
+        }
+
+        public void CloseForDays(int days)
+        {
+            daysShut += days;
+        }
+        public bool GetIsOpen()
+        {
+            return (daysShut == 0);
         }
 
         public string GetName()
@@ -122,6 +132,10 @@ class Company
             double profitLossFromOutlets = 0;
             double profitLossFromThisOutlet = 0;
             double deliveryCosts;
+            if (daysShut > 0)
+            {
+                daysShut--;
+            }
             if (outlets.Count > 1)
             {
                 deliveryCosts = baseCostOfDelivery + CalculateDeliveryCost();

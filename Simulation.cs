@@ -228,7 +228,7 @@ class Simulation
                     current = 0;
                     while (current < reputations.Count)
                     {
-                        if (companyRNo < reputations[current])
+                        if (companyRNo < reputations[current] && companies[current])
                         {
                             companies[current].AddVisitToNearestOutlet(x, y);
                             break;
@@ -247,10 +247,19 @@ class Simulation
 
         private void AddCompany()
         {
+            List<string> companyNames = new List<string>();
+            for (int i = 0; i < companies.Count();i++)
+            {
+                companyNames.Add(companies[i].GetName());
+            }
             int balance, x = 0, y = 0;
             string companyName, typeOfCompany = "9";
-            Console.Write("Enter a name for the company: ");
-            companyName = Console.ReadLine();
+            do
+            {
+                Console.Write("Enter a name for the company: ");
+                companyName = Console.ReadLine();
+            }
+            while (companyNames.Contains(companyName));
             Console.Write("Enter the starting balance for the company: ");
             balance = Convert.ToInt32(Console.ReadLine());
             while (typeOfCompany != "1" && typeOfCompany != "2" && typeOfCompany != "3")
