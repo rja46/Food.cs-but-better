@@ -344,15 +344,14 @@ class Simulation
             }
             else if (choice == "4")
             {
-                Console.WriteLine("REMOVE COMPANY");
-                for (int i = 0; i < companies[index].GetNumberOfOutlets();i++)
+                do
                 {
-                    closeCompany = companies[index].CloseOutlet(companies[index].GetNumberOfOutlets() - 1);
-                    if (closeCompany)
-                    {
-                        companies.RemoveAt(index);
-                    }
+                    closeCompany = companies[index].CloseOutlet(0);
                 }
+                while (!closeCompany);
+                companies.RemoveAt(index);
+                System.Console.WriteLine();
+                System.Console.WriteLine("Removed Company");
             }
             Console.WriteLine();
         }
