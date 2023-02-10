@@ -172,11 +172,12 @@ class Simulation
         }
         private void ProcessCloseEvent()
         {
-            string[] eventType = {"strike", "road closure", "supply problem", "health code violation", "aviation 'accident'"};
-            int eventID = rnd.Next(0,eventType.Length);
+            string[] eventType = {" strike", " road closure", " supply problem", " health code violation", "n aviation 'accident'", "hostage crisis"};
+            int eventID = rnd.Next(0, eventType.Length);
             int daysClosed = rnd.Next(1,8);
             int companyNo = rnd.Next(0, companies.Count);
-            System.Console.WriteLine("{0} will be closed for {1} day(s) due to a {3}.", companies[companyNo].GetName(), daysClosed, );
+            companies[companyNo].CloseForDays(daysClosed);
+            System.Console.WriteLine(companies[companyNo].GetName() + " will be closed for " + daysClosed + " day(s) due to a" + eventType[eventID] + ".");
         }
         private void DisplayEventsAtDayEnd()
         {
@@ -206,6 +207,10 @@ class Simulation
                 if (eventRanNo >= 0.5)
                 {
                     ProcessCostChangeEvent();
+                }
+                if (eventRanNo >= 0.5)
+                {
+                    ProcessCloseEvent();
                 }
             }
             else

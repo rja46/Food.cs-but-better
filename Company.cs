@@ -6,6 +6,7 @@ class Company
         protected List<Outlet> outlets = new List<Outlet>();
         protected int familyFoodOutletCapacity, fastFoodOutletCapacity, namedChefOutletCapacity;
         protected int daysShut;
+        protected string status = "Open";
         public Company(string name, string category, double balance, int x, int y, double fuelCostPerUnit, double baseCostOfDelivery)
         {
             familyOutletCost = 1000;
@@ -45,6 +46,7 @@ class Company
         public void CloseForDays(int days)
         {
             daysShut += days;
+            status = "Closed";
         }
         public bool GetIsOpen()
         {
@@ -114,7 +116,7 @@ class Company
         public string GetDetails()
         {
             string details = "";
-            details += "Name: " + name + "\nType of business: " + category + "\n";
+            details += "Name: " + name + "\nType of business: " + category + "\nCurrent Status: " + status + "\n";
             details += "Current balance: " + balance.ToString() + "\nAverage cost per meal: " + avgCostPerMeal.ToString() + "\n";
             details += "Average price per meal: " + avgPricePerMeal.ToString() + "\nDaily costs: " + dailyCosts.ToString() + "\n";
             details += "Delivery costs: " + CalculateDeliveryCost().ToString() + "\nReputation: " + reputationScore.ToString() + "\n\n";
@@ -135,6 +137,10 @@ class Company
             if (daysShut > 0)
             {
                 daysShut--;
+            }
+            else
+            {
+                status = "Open";
             }
             if (outlets.Count > 1)
             {

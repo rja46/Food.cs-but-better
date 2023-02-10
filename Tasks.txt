@@ -6,7 +6,7 @@ Share any ideas for additional tasks so that these can be added to the document 
 3.	DONE Add code to the Simulation class to keep track of the number of days that have passed.
 4.	DONE Add code to allow the user to advance a number of days at a time.
 5.	DONE Ensure that company names cannot be duplicated.
-6.	Create events that cause temporary closures of outlets for a number of days (eg strike, problems with electricity or water, ingredient supply issues etc).
+6.	DONE Create events that cause temporary closures of outlets for a number of days (eg strike, problems with electricity or water, ingredient supply issues etc).
 7.	Introduce the concept of weather into the simulation. At the start of each new day, randomly select the weather for the day. Allow the type of weather to have some bearing on the likelihood of households eating out.
 8.	Ensure that fuel costs cannot become negative.
 9.	Add an identifier for outlets and use this as the main method for processing their data.
