@@ -170,7 +170,14 @@ class Simulation
                 companies[companyNo].AlterAvgCostPerMeal(amountOfChange);
             }
         }
-
+        private void ProcessCloseEvent()
+        {
+            string[] eventType = {"strike", "road closure", "supply problem", "health code violation", "aviation 'accident'"};
+            int eventID = rnd.Next(0,eventType.Length);
+            int daysClosed = rnd.Next(1,8);
+            int companyNo = rnd.Next(0, companies.Count);
+            System.Console.WriteLine("{0} will be closed for {1} day(s) due to a {3}.", companies[companyNo].GetName(), daysClosed, );
+        }
         private void DisplayEventsAtDayEnd()
         {
             Console.WriteLine("\n***********************");
@@ -207,7 +214,7 @@ class Simulation
             }
         }
 
-        public void ProcessDayEnd()
+        public void ProcessDayEnd(bool doOutput)
         {
             daysPassed++;
             double totalReputation = 0;
@@ -228,7 +235,7 @@ class Simulation
                     current = 0;
                     while (current < reputations.Count)
                     {
-                        if (companyRNo < reputations[current] && companies[current])
+                        if (companyRNo < reputations[current] && companies[current].GetIsOpen())
                         {
                             companies[current].AddVisitToNearestOutlet(x, y);
                             break;
@@ -237,12 +244,15 @@ class Simulation
                     }
                 }
             }
-            Console.WriteLine();
-            Console.WriteLine("******************");
-            Console.WriteLine("**** Day " + daysPassed.ToString().PadLeft(3,'0') + ": ****");
-            Console.WriteLine("******************");
-            DisplayCompaniesAtDayEnd();
-            DisplayEventsAtDayEnd();
+            if (doOutput)
+            {
+                Console.WriteLine();
+                Console.WriteLine("******************");
+                Console.WriteLine("**** Day " + daysPassed.ToString().PadLeft(3,'0') + ": ****");
+                Console.WriteLine("******************");
+                DisplayCompaniesAtDayEnd();
+                DisplayEventsAtDayEnd();
+            }
         }
 
         private void AddCompany()
@@ -381,7 +391,7 @@ class Simulation
         {
             for (int i = 0; i < days; i++)
             {
-                ProcessDayEnd();
+                ProcessDayEnd(false);
             }
         }
 
@@ -417,7 +427,7 @@ class Simulation
                         AddCompany();
                         break;
                     case "6":
-                        ProcessDayEnd();
+                        ProcessDayEnd(true);
                         break;
                     case "7":
                         Console.Write("Enter the number of days: ");
